@@ -1,13 +1,19 @@
 import React from 'react'
 //instead of creating multiple imports, use the index.js to import components to App.js
-import { Cards, Chart, CountryPicker} from './components'
-
+import { Cards, Chart, CountryPicker } from './components'
+import { fetchData } from './api/'
 import styles from './App.module.css'
 
 class App extends React.Component {
+   
+    async componentDidMount() {
+        const data = await fetchData()
+        console.log(data)
+    }
+
     render() {
-        return(
-            <div>
+        return (
+            <div className={styles.container}>
                 <Cards />
                 <CountryPicker />
                 <Chart />
