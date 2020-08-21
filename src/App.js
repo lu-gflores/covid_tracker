@@ -1,7 +1,7 @@
 import React from 'react'
 //instead of creating multiple imports, use the index.js to import components to App.js
 import { Cards, Chart, CountryPicker } from './components'
-import { fetchData } from './api/'
+import { fetchData } from './api'
 import styles from './App.module.css'
 
 class App extends React.Component {
@@ -10,8 +10,8 @@ class App extends React.Component {
     }
 
     async componentDidMount() {
-        const fetchedData = await fetchData()
-        this.setState({data: fetchedData})
+        const fetchedData = await fetchData();
+        this.setState({data: fetchedData});
     }
 
     render() {
@@ -19,7 +19,7 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
-                <Cards data={data}  />
+                <Cards data={data}/>
                 <CountryPicker />
                 <Chart />
             </div>
